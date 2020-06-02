@@ -116,7 +116,10 @@ function printQuote() {
   document.getElementById('quote-box').innerHTML = html;
 }
 
-setInterval(printQuote, 5000);
+/**
+ * Interval of 10 seconds, background color and quote change on interval
+ */
+setInterval(printQuote, 10000);
 
 /***
  * click event listener for the print quote button
