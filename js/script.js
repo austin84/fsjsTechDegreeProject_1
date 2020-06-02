@@ -14,7 +14,6 @@ const quotes = [
     source: 'Paulo Coelho',
     citation: 'The Alchemist',
     year: '1988',
-    tag: 'Metaphysics',
   },
   {
     quote: 'There is no greater agony than bearing an untold story inside you.',
@@ -28,16 +27,12 @@ const quotes = [
       'And so we beat on, boats against the current, borne back ceaselessly into the past.',
     source: 'F. Scott Fitzgerald',
     citation: 'The Great Gatsby',
-    year: '1924',
-    tag: 'Adventure',
   },
   {
     quote:
       'How wonderful it is that nobody need wait a single moment before starting to improve the world.',
     source: 'Anne Frank',
     citation: 'The Diary of a Young Girl',
-    year: '1942',
-    tag: 'Positivity',
   },
   {
     quote:
@@ -76,7 +71,6 @@ const quotes = [
     source: 'J. K. Rowling',
     citation: 'Harry Potter and the Order of the Phoenix',
     year: '2003',
-    tag: 'Right/Wrong',
   },
 ];
 
@@ -93,14 +87,22 @@ function getRandomQuote() {
  */
 function printQuote() {
   const printQuote = getRandomQuote();
-  const html = `
+  let html = `
   <p class="quote">${printQuote.quote}</p>
   <p class="source">${printQuote.source}
-    <span class="citation">${printQuote.citation}</span>
-    <span class="year">${printQuote.year}</span>
-    <span class="tag">${printQuote.tag}</span>
-  </p>
   `;
+
+  if (printQuote.citation) {
+    html += `<span class="citation">${printQuote.citation}</span>`;
+  }
+  if (printQuote.year) {
+    html += `<span class="year">${printQuote.year}</span>`;
+  }
+  if (printQuote.tag) {
+    html += `<span class="tag">${printQuote.tag}</span>`;
+  }
+  html += `</p>`;
+
   const letters = '0123456789ABCDEF';
   let color = `#`;
 
